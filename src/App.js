@@ -1,15 +1,18 @@
 import React from 'react';
-import CardItem from './CardItem'
+import CardsList from './components/Cards/CardsList'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <CardItem></CardItem>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <CardsList/>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;

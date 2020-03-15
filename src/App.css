@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+
+/*#region Global Css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  background-color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  color: #1e1e1e;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
-.App-link {
-  color: #61dafb;
+/*#endregion Global Css */
+
+/*#region Buttons Css */
+
+.btn {
+   background: #1700ff;
+   border: 1px solid #f0f0f0;
+   border-radius: 1rem;
+   color: #fff;
+   padding: 0.5rem;
+   text-transform: capitalize;
+   -webkit-border-radius: 1rem;
+   -moz-border-radius: 1rem;
+   -ms-border-radius: 1rem;
+   -o-border-radius: 1rem;
+   transition: background 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+   -webkit-transition: background 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+   -moz-transition: background 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+   -ms-transition: background 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+   -o-transition: background 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
 }
 
-@keyframes App-logo-spin {
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+.btn--inline-block{
+  display: inline-block;
+  margin: 1rem 0.5%;
+  width: 90%;
+}
+
+.btn--transparent{
+  background:transparent;
+  color: #000;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus{
+  cursor: pointer;
+  background:#1e1e1e;
+  color: #fff;
+  outline: none;
+}
+
+/*#endregion Buttons Css */
+
+/*#region Animation Css */
+
+@-webkit-keyframes fadeInLeft {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/*#endregion Animation Css */
+
+@media (min-width: 56rem) {
+  .btn--inline-block{
+    margin: 0 0.5%;
+    width: 32%;
   }
 }

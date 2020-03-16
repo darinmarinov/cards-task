@@ -12,12 +12,19 @@ class CardsList extends React.Component {
     this.state = {
       cards: [],
       error: null,
-      isLoading: true
+      isLoading: true,
+      formErrors: [],
+      card: {
+        id: 2,
+        name: 'Title',
+        body: 'Content'
+      }
     }
   }
+  
 
   componentDidMount() {
-    setTimeout(() => {this.fetchCards()}, 2200);
+    setTimeout(() => { this.fetchCards() }, 1200);
   }
 
   fetchCards = () => {
@@ -40,25 +47,67 @@ class CardsList extends React.Component {
   removeCardItem = id => {
     const { cards } = this.state;
     const newCards = cards.filter((card, i) => i !== id);
-    this.setState({ cards: newCards});
+    this.setState({ cards: newCards });
+  }
+
+  
+  errorClass = () => {
+    return(this.state.formErrors.length === 0 ? '' : 'c-error c-validation');
+  }
+
+  addCardItem = e => {
+    e.preventDefault();
+    const { id, name, body } = this.state.card;
+    const errors = this.validate(name, body);
+
+    if (errors.length > 0) {
+      this.setState({ formErrors: errors })
+      return;
+    }
+    const newCard = {
+      id: id,
+      name: name,
+      body: body
+    }
+    this.setState({ cards: [newCard, ...this.state.cards] })
+  }
+
+  validate = (name, body) => {
+    const errors = [];
+
+    if ((!name && name.length === 0) && (!body &&  body.length === 0)) {
+      errors.push(" Name and Content can't be empty. ");
+    }else{
+      this.setState({formErrors:[]})
+    }
+
+    return errors;
+  }
+
+  updateValue(e) {
+    const target = e.target;
+    const value = target.value;
+    const nameOfInput = target.name;
+    const id = _.random(0, 1000)
+    this.setState({ card: { id: id, [nameOfInput]: value, [nameOfInput]: value } })
   }
 
   reOrderCardItemsByName = () => {
     const { cards } = this.state;
-    const sorted =  _.sortBy(cards,"name")
-    this.setState({ cards: sorted});
+    const sorted = _.sortBy(cards, "name")
+    this.setState({ cards: sorted });
   }
 
-  reOrderCardItemsByTitle =  () => {
+  reOrderCardItemsByTitle = () => {
     const { cards } = this.state;
-    const sorted =  _.sortBy(cards,"body")
-    this.setState({ cards: sorted});
+    const sorted = _.sortBy(cards, "body")
+    this.setState({ cards: sorted });
   }
 
-  reOrderCardItemsById =  () => {
+  reOrderCardItemsById = () => {
     const { cards } = this.state;
-    const sorted =  _.sortBy(cards,"id")
-    this.setState({ cards: sorted});
+    const sorted = _.sortBy(cards, "id")
+    this.setState({ cards: sorted });
   }
 
   render() {
@@ -67,22 +116,46 @@ class CardsList extends React.Component {
     return (
       <React.Fragment>
         <div className="order-btns">
-            <button className="btn btn--inline-block btn--transparent" onClick={this.reOrderCardItemsByName}> Re order by name</button>
-            <button className="btn btn--inline-block btn--transparent" onClick={this.reOrderCardItemsById}> Re order by id</button>
-            <button className="btn btn--inline-block btn--transparent" onClick={this.reOrderCardItemsByTitle}> Re order by title</button>
+          <button className="btn btn--inline-block btn--transparent" onClick={this.reOrderCardItemsByName}> Re order by name</button>
+          <button className="btn btn--inline-block btn--transparent" onClick={this.reOrderCardItemsById}> Re order by id</button>
+          <button className="btn btn--inline-block btn--transparent" onClick={this.reOrderCardItemsByTitle}> Re order by title</button>
         </div>
 
+        <form className='text-center' onSubmit={this.addCardItem}>
+          <input
+            className='form__input'
+            name='name'
+            placeholder="Add Card Item Title"
+            onFocus={e => e.target.value === this.state.card.name ? e.target.value = '' :  null}
+            value={this.state.card.name}
+            onChange={(e) => { this.updateValue(e) }}
+          />
+          <input
+            className='form__input'
+            name='body'
+            placeholder="Add Card Item Body"
+            onFocus={e => e.target.value === this.state.card.body ? e.target.value = '' :  null}
+            value={this.state.card.body}
+            onChange={(e) => { this.updateValue(e) }}
+          />
+          <button className='btn' type="submit">Add Item</button>
+        </form>
+        <div className={`${this.errorClass()} error`}>
+          {this.state.formErrors.map(error => (
+            <p key={error}>Error: {error}</p>
+          ))}
+        </div>
         <ul className="cards">
           {error ? <p>{error.message}</p> : null}
           {!isLoading ? (
             cards.map((card, index) => {
-              const {id, name, body } = card;
+              const { id, name, body } = card;
               return (
-                <CardItem  key={id} name={name} body={body} id={id} index={index} removeItem={this.removeCardItem} />
+                <CardItem key={id} name={name} body={body} id={id} index={index} removeItem={this.removeCardItem} />
               );
             })
-            ) : (
-              <Loading/>
+          ) : (
+              <Loading />
             )}
         </ul>
       </React.Fragment >

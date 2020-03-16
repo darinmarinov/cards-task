@@ -22,6 +22,8 @@
     -moz-border-radius: 0.35rem;
     -ms-border-radius: 0.35rem;
     -o-border-radius: 0.35rem;
+    width: 100%;
+    height: 100%;
   }
   
   .card:hover .card__image  {

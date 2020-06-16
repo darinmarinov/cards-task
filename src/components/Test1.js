@@ -2,7 +2,6 @@ function ss(){
     console.log('233')
 }
 
-<<<<<<< HEAD
 function sss(){
     console.log('2')
 }
@@ -22,7 +21,5 @@ console.log('test2')
 console.log('test3')
 console.log('test3')
 
-=======
->>>>>>> Update Test1.js
 
 

@@ -86,10 +86,8 @@ class CardsList extends React.Component {
 
   updateValue(e) {
     const target = e.target;
-    const value = target.value;
-    const nameOfInput = target.name;
     const id = _.random(0, 1000)
-    this.setState({ card: { id: id, [nameOfInput]: value, [nameOfInput]: value } })
+    this.setState({ card: { id: id, name: [target.value], body: [target.value] } })
   }
 
   reOrderCardItemsByName = () => {
@@ -124,7 +122,6 @@ class CardsList extends React.Component {
         <form className='text-center' onSubmit={this.addCardItem}>
           <input
             className='form__input'
-            name='name'
             placeholder="Add Card Item Title"
             onFocus={e => e.target.value === this.state.card.name ? e.target.value = '' :  null}
             value={this.state.card.name}
@@ -132,7 +129,6 @@ class CardsList extends React.Component {
           />
           <input
             className='form__input'
-            name='body'
             placeholder="Add Card Item Body"
             onFocus={e => e.target.value === this.state.card.body ? e.target.value = '' :  null}
             value={this.state.card.body}

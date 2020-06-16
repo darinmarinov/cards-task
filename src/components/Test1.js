@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-function rrr(){
-=======
 function rr(){
->>>>>>> Stashed changes
     console.log('1')
 }
 

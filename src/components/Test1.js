@@ -1,7 +1,7 @@
-function darin(){
+function rrr(){
     console.log('1')
 }
 
-function ivailo(){
+function sss(){
     console.log('2')
 }

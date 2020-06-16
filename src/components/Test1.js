@@ -1,4 +1,4 @@
-function rr(){
+function ss(){
     console.log('233')
 }
 

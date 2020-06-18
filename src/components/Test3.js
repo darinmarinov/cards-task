@@ -614,37 +614,3 @@ content: '';
 }
 
 /* #endregion */
-
-/* #region Entry Content Queries */
-
-@media (max-width: 991px) {
-
-    .entry-content .left,
-    .entry-content .right {
-        float: none;
-        display: block;
-        margin: 0 0 2rem;
-    }
-
-    .entry-content .flex-col,
-    .entry-content .flex-col-auto,
-    .entry-content .flex-col-1,
-    .entry-content .flex-col-2,
-    .entry-content .flex-col-3,
-    .entry-content .flex-col-4,
-    .entry-content .flex-col-5,
-    .entry-content .flex-col-6,
-    .entry-content .flex-col-7,
-    .entry-content .flex-col-8,
-    .entry-content .flex-col-9,
-    .entry-content .flex-col-10,
-    .entry-content .flex-col-11,
-    .entry-content .flex-col-12 {
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-}
-
-/* #endregion */

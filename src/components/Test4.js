@@ -32,6 +32,8 @@ function test(){
     
     
     
+    ssd
+sasd    
     
     
     
@@ -39,41 +41,7 @@ function test(){
     
     
     
-    
-    
-    
-    
-    
-    
-    
-        console.log('darin')
-        function test(){
-            console.log(test)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-            console.log('darin')
-            function test(){
-                console.log(test)
-            
+
             
             
             

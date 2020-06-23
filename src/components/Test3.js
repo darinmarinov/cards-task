@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-.entry-sss {
-=======
-.rumen-darin {
->>>>>>> rumen
+rummen ivanov
     padding-top: 2rem;
     padding-bottom: 2rem;
 }

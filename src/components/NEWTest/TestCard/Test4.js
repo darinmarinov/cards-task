@@ -1,65 +1,7 @@
-console.log('darin')
-function test(){
-    console.log(test)
+darin(){
+    console.log(darin)
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    console.log('darin')
-    function test(){
-        console.log(test)
-    
-    
-    
-    
-    
-    
-    
-    ssd
-sasd    
-    
-    
-    
-    
-    
-    
-    
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-                        
+ivailo(){
+    console.log(ivailo)
+};
